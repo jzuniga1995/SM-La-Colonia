@@ -1,0 +1,429 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Header y Menú de Navegación */
+header {
+    background-color: #2a9d8f;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Menú base */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu-icon {
+    display: none; /* Escondido por defecto en pantallas grandes */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Esconde el menú completo por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex; /* Muestra el menú cuando se activa */
+    }
+
+    .menu-icon {
+        display: block; /* Muestra el ícono hamburguesa en pantallas pequeñas */
+    }
+
+    .nav-links li a {
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative; /* Importante para que el overlay esté encima de la imagen de fondo */
+    height: 100vh;
+    background: url('https://d3h3bmeuj906e6.cloudfront.net/wp-content/uploads/2022/03/8901be86-826b-4859-ae4e-6a38b132ec06.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-top: 70px;
+}
+
+/* Capa de superposición */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad aquí (0.5 es 50% de transparencia) */
+    z-index: 1; /* Coloca la capa de overlay debajo del contenido pero encima de la imagen de fondo */
+}
+
+/* Estilos del contenido del hero */
+.hero-content {
+    position: relative; /* Para asegurarse de que el contenido esté encima del overlay */
+    z-index: 2; /* Coloca el contenido por encima del overlay */
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.cta {
+    background-color: #e76f51;
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #f4a261;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Sección Sobre Nosotros */
+.about {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #666;
+}
+
+.about img {
+    margin-top: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.products h2 {
+    text-align: center;
+    font-size: 2.5rem;
+
+}
+
+.carousel-track-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 100;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Indicadores del carrusel */
+.carousel-nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-indicator.current-slide {
+    background-color: #e76f51;
+}
+
+/* Efecto al hacer hover en las flechas */
+.carousel-button:hover {
+    background-color: #f4a261;
+}
+
+
+/* Sección de Contacto */
+.contact {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact form input,
+.contact form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+.contact form button {
+    background-color: #e76f51;
+    padding: 15px 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact form button:hover {
+    background-color: #f4a261;
+}
+
+/* Estilos de error para el formulario */
+.error {
+    border: 2px solid #e76f51;
+}
+
+.error-text {
+    color: #e76f51;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Footer */
+.footer {
+    background-color: #282c34;
+    color: white;
+    padding: 40px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #f4a261;
+}
+
+.footer-col p,
+.footer-col ul {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style-type: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #f4a261;
+}
+
+.footer-col ul li i {
+    margin-right: 10px;
+    color: #f4a261;
+}
+
+/* Redes sociales en el footer */
+.footer-col .social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #f4a261;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-col .social-links a:hover {
+    background-color: #e76f51;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .carousel-slide {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
