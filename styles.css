@@ -29,7 +29,7 @@ header {
 }
 /* Estilo del logo */
 header .logo {
-    font-size: 1rem; /* Ajustar el tamaño del logo */
+    font-size: 1.2rem; /* Ajustar el tamaño del logo */
     font-weight: bold;
 }
 
