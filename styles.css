@@ -5,17 +5,10 @@
     box-sizing: border-box;
 }
 
-/* Asegura que no haya márgenes ni padding en el body */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    box-sizing: border-box;
-}
 
 /* Asegura que el header cubra todo el ancho */
 header {
-    background-color: rgba(42, 157, 143, 0.9); /* Añadir transparencia */
+    background-color: #2a9d8f;
     color: white;
     position: fixed;
     top: 0;
@@ -24,29 +17,14 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 0;
-    height: 60px; /* Altura fija para mayor consistencia */
+    height: 8%;
+   
 }
-
-/* Ajustar la altura del header en pantallas pequeñas */
-@media (max-width: 768px) {
-    header {
-        height: 50px; /* Ajustar en móviles */
-    }
-}
-
 /* Estilo del logo */
 header .logo {
-    font-size: 1.2rem; /* Ajustar el tamaño del logo */
+    font-size: 1.6rem; /* Ajustar el tamaño del logo */
     font-weight: bold;
-    padding: 10px 20px;
-}
-
-/* Ajustar padding del logo en pantallas pequeñas */
-@media (max-width: 768px) {
-    .logo {
-        padding: 5px 10px;
-        font-size: 1rem; /* Ajustar tamaño del logo en móviles */
-    }
+    padding: 3%;
 }
 
 /* Menú base */
@@ -55,21 +33,16 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-}
-
-/* Ajustar el padding en pantallas pequeñas */
-@media (max-width: 768px) {
-    nav {
-        padding: 5px 10px; /* Reducir el padding en móviles */
-    }
 }
 
 .nav-links {
     display: flex; /* Menú en horizontal en pantallas grandes */
     list-style: none;
     gap: 20px;
+
+    
 }
+
 
 .menu-icon {
     display: none; /* Escondemos el ícono de hamburguesa en pantallas grandes */
@@ -94,10 +67,6 @@ nav {
 
     .menu-icon {
         display: block; /* Mostrar ícono hamburguesa en móviles */
-        position: absolute;
-        right: 20px; /* Alineado a la derecha */
-        top: 15px; /* Ajustar posición vertical */
-        cursor: pointer;
     }
 }
 
@@ -108,10 +77,12 @@ nav {
     font-size: 1.2rem;
     padding: 10px;
 }
+.nav-links li a:hover{
 
-.nav-links li a:hover {
     background-color: #f4a261;
+
 }
+
 
 /* Ajuste del margin-top en hero */
 .hero {
@@ -125,7 +96,6 @@ nav {
     text-align: center;
     color: white;
 }
-
 /* Capa de superposición */
 .hero::before {
     content: '';
@@ -134,7 +104,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad aquí */
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad aquí (0.5 es 50% de transparencia) */
     z-index: 1; /* Coloca la capa de overlay debajo del contenido pero encima de la imagen de fondo */
 }
 
@@ -171,6 +141,16 @@ nav {
     background-color: #f4a261;
 }
 
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 /* Sección Sobre Nosotros */
 .about {
     padding: 100px 20px;
@@ -190,6 +170,13 @@ nav {
     color: #666;
 }
 
+.about img {
+    margin-top: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+
 /* Carrusel */
 .carousel {
     position: relative;
@@ -198,7 +185,6 @@ nav {
     margin: 0 auto;
     overflow: hidden;
 }
-
 .products h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -270,12 +256,59 @@ nav {
     background-color: #e76f51;
 }
 
+/* Efecto al hacer hover en las flechas */
+.carousel-button:hover {
+    background-color: #f4a261;
+}
+
 /* Sección de Contacto */
 .contact {
     background-color: #2a9d8f;
     color: white;
     padding: 100px 20px;
     text-align: center;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact form input,
+.contact form textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+.contact form button {
+    background-color: #e76f51;
+    padding: 15px 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact form button:hover {
+    background-color: #f4a261;
+}
+
+/* Estilos de error para el formulario */
+.error {
+    border: 2px solid #e76f51;
+}
+
+.error-text {
+    color: #e76f51;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
 }
 
 /* Footer */
@@ -292,6 +325,96 @@ nav {
     padding: 0 20px;
 }
 
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #f4a261;
+}
+
+.footer-col p,
+.footer-col ul {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style-type: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #f4a261;
+}
+
+.footer-col ul li i {
+    margin-right: 10px;
+    color: #f4a261;
+}
+
+/* Redes sociales en el footer */
+.footer-col .social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #f4a261;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-col .social-links a:hover {
+    background-color: #e76f51;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
 /* Responsividad */
 @media (max-width: 768px) {
     .hero h1 {
@@ -300,11 +423,6 @@ nav {
 
     .carousel-slide {
         width: 100%;
-    }
-
-    .footer-row {
-        flex-direction: column;
-        text-align: center;
     }
 }
 
