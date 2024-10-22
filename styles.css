@@ -46,6 +46,7 @@ nav {
 
 .menu-icon {
     display: none; /* Escondemos el ícono de hamburguesa en pantallas grandes */
+    padding: 10%;
 }
 
 /* Estilo para pantallas pequeñas */
@@ -67,6 +68,7 @@ nav {
 
     .menu-icon {
         display: block; /* Mostrar ícono hamburguesa en móviles */
+        padding: 10%;
     }
 }
 
